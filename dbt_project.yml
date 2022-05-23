@@ -1,0 +1,17 @@
+
+name: 'dbt_shanghai_hackathon'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_shanghai_hackathon'
+
+models:
+  dbt_shanghai_hackathon:
+    events:
+      +materialized: table
+      +file_format: parquet
+      +schema: events
+    labels:
+      +materialized: table
+      +file_format: parquet
+      +schema: labels
