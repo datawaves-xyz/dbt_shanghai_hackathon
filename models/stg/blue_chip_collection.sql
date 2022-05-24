@@ -8,6 +8,7 @@ volume_info as (
     nft_contract_address,
     sum(eth_amount) as volume
   from nft_trades
+  where to_date(block_time) >= date_sub(current_date(), 30)
   group by nft_contract_address
   order by volume desc
   limit 30

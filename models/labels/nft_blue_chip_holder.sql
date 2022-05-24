@@ -76,9 +76,9 @@ holder_info as (
       union
       select * from erc1155_batch_transfer
       union
-      select * from cryptopunks_transfer
-      where to_address != '0x0000000000000000000000000000000000000000'
+      select * from cryptopunks_transfer 
     )
+    where to_address != '0x0000000000000000000000000000000000000000'
   )
   where rank = 1
 )
