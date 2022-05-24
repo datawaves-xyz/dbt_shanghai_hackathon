@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: nft_whale
-  - name: smart_nft_trader
+  - name: nft_whales
+  - name: smart_nft_traders
   - name: opensea_trader
-  - name: blue_chip_holder
+  - name: nft_blue_chip_holder
   - name: ens_name
   - name: ens_name_reverse
