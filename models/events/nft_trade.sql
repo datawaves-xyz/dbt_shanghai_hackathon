@@ -1,6 +1,6 @@
 with nft_trades as (
   select *
-  from {{ ref("nft", "nft_trades") }}
+  from {{ ref("nft_trades") }}
 )
 
 select
