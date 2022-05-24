@@ -33,4 +33,4 @@ select
 from txn as t
 inner join swap as s
   on s.block_number = t.block_number
-  and s.tx_hash = t.tx_hash
+  and s.tx_hash = t.hash

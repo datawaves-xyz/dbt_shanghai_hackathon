@@ -85,7 +85,7 @@ holder_info as (
 
 select distinct
   holder_info.holder as address,
-  'NFT Blue Chip Holder' as label
+  'NFT Blue Chip Holder' as label,
   'NFT Collector' as label_type
 from blue_chip
 join holder_info
