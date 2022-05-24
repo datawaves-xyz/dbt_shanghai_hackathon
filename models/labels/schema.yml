@@ -4,5 +4,4 @@ models:
   - name: nft_whale
   - name: smart_nft_trader
   - name: opensea_trader
-  - name: blue_chip_collection
   - name: blue_chip_holder
