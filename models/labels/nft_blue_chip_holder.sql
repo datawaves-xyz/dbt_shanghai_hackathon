@@ -3,6 +3,11 @@ with blue_chip as (
   from {{ ref('blue_chip_collection') }}
 ),
 
+contracts as (
+  select distinct address
+  from {{ ref('stg_contracts') }}
+),
+
 erc721_transfer as (
   select
     contract_address as nft_contract_address,
@@ -82,6 +87,8 @@ select distinct
   holder_info.holder as address,
   'NFT Blue Chip Holder' as label
   'NFT Collector' as label_type
-from blue_chip a
+from blue_chip
 join holder_info
   on blue_chip.nft_contract_address = holder_info.nft_contract_address
+left anti join contracts
+  on holder_info.holder = contracts.address
