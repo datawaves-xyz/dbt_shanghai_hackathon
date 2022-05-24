@@ -2,3 +2,4 @@ version: 2
 
 models:
   - name: nft_mint
+  - name: metamask_swap
