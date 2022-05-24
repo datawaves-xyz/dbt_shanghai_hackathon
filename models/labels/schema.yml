@@ -6,3 +6,5 @@ models:
   - name: opensea_trader
   - name: blue_chip_collection
   - name: blue_chip_holder
+  - name: ens_name
+  - name: ens_name_reverse
