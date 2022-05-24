@@ -6,7 +6,8 @@ with opensea_trades as (
 
 select distinct
   address,
-  'OpenSea Trader' as label
+  'OpenSea Trader' as label,
+  'NFT Collector' as label_type
 from (
   select distinct seller as address
   from opensea_trades
