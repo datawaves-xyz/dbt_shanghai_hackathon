@@ -33,10 +33,24 @@ erc1155_batch_transfer as (
 cryptopunks_transfer as (
   select
     contract_address as nft_contract_address,
-    punkIndex as nft_token_id,
+    punkindex as nft_token_id,
     to as to_address,
     evt_block_time as block_time
   from {{ ref('cryptopunks_CryptoPunksMarket_evt_PunkTransfer') }}
+  union distinct
+  select
+    contract_address as nft_contract_address,
+    punkindex as nft_token_id,
+    toaddress as to_address,
+    evt_block_time as block_time
+  from {{ ref('cryptopunks_CryptoPunksMarket_evt_PunkBought') }}
+  union distinct
+  select
+    contract_address as nft_contract_address,
+    punkindex as nft_token_id,
+    to as to_address,
+    evt_block_time as block_time
+  from {{ ref('cryptopunks_CryptoPunksMarket_evt_Assign') }}
 ), 
 
 holder_info as (
@@ -58,6 +72,7 @@ holder_info as (
       select * from erc1155_batch_transfer
       union
       select * from cryptopunks_transfer
+      where to_address != '0x0000000000000000000000000000000000000000'
     )
   )
   where rank = 1
