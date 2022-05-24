@@ -2,4 +2,8 @@ version: 2
 
 models:
   - name: nft_mint
+<<<<<<< HEAD
   - name: nft_trade
+=======
+  - name: metamask_swap
+>>>>>>> e49555f (feat: metamask.swap && ens.ens_name && ens.ens_name_reverse)

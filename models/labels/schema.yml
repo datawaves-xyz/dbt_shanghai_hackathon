@@ -5,3 +5,5 @@ models:
   - name: smart_nft_trader
   - name: opensea_trader
   - name: blue_chip_holder
+  - name: ens_name
+  - name: ens_name_reverse

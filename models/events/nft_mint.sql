@@ -1,19 +1,19 @@
-with erc721_transfer from(
+with erc721_transfer as (
   select *
   from {{ ref('ERC721_evt_Transfer') }}
 ),
 
-erc1155_single_transfer from (
+erc1155_single_transfer as (
   select *
   from {{ ref('ERC1155_evt_TransferSingle') }}
 ),
 
-erc1155_batch_transfer from (
+erc1155_batch_transfer as (
   select *
   from {{ ref('ERC1155_evt_TransferBatch') }}
 ),
 
-721_transfer from (
+721_transfer as (
   select
     evt_block_number,
     evt_block_time,
@@ -25,10 +25,11 @@ erc1155_batch_transfer from (
     array(tokenId) as token_ids,
     'ERC721' as type,
     dt
-  from erc721_transfer where from='0x0000000000000000000000000000000000000000' 
+  from erc721_transfer 
+  where from='0x0000000000000000000000000000000000000000' 
 ),
 
-1155_transfer from (
+1155_transfer as (
   select
     evt_block_number,
     evt_block_time,
@@ -40,11 +41,10 @@ erc1155_batch_transfer from (
     array(id) as token_ids,
     'ERC1155' as type,
     dt
-from erc1155_single_transfer where from='0x0000000000000000000000000000000000000000' 
-
-union
-
-select
+  from erc1155_single_transfer 
+  where from='0x0000000000000000000000000000000000000000' 
+  union
+  select
     evt_block_number,
     evt_block_time,
     evt_index,
@@ -55,7 +55,8 @@ select
     ids as token_ids,
     'ERC1155' as type,
     dt
-from erc1155_batch_transfer where from='0x0000000000000000000000000000000000000000'
+  from erc1155_batch_transfer 
+  where from='0x0000000000000000000000000000000000000000'
 )
 
 select * from 721_transfer
