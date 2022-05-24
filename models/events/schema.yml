@@ -2,4 +2,5 @@ version: 2
 
 models:
   - name: nft_mint
+  - name: nft_trade
   - name: metamask_swap
