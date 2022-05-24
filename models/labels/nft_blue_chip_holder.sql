@@ -1,6 +1,6 @@
 with blue_chip as (
   select *
-  from {{ ref('blue_chip_collection') }}
+  from {{ ref('blue_chip_30') }}
 ),
 
 contracts as (

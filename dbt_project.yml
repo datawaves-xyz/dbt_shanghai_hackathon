@@ -17,4 +17,4 @@ models:
       +schema: labels
     stg:
       +materialized: view
-      +schema: stg
+      +schema: index
