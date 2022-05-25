@@ -37,8 +37,7 @@ top_stat as (
 
 select distinct
   trade_info.address,
-  'Uncommon NFT Trader' as label,
-  'NFT Collector' as label_type
+  'Uncommon NFT Trader' as label
 from trade_info
 full outer join top_stat
 where trade_info.transaction >= top_stat.target_value

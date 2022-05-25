@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: nft_whales
+  - name: smart_nft_traders
+  - name: opensea_trader
+  - name: nft_blue_chip_holder
+  - name: ens_name
+  - name: ens_name_reverse
+  - name: uncommon_nft_trader
+  - name: rare_nft_trader
+  - name: epic_nft_trader
+  - name: legendary_nft_trader
+  - name: diversified_nft_holder

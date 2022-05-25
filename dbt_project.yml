@@ -11,10 +11,16 @@ models:
       +materialized: table
       +file_format: parquet
       +schema: events
+
+    label_materials:
+      +materialized: view
+      +schema: label_materials
+
     labels:
       +materialized: table
       +file_format: parquet
       +schema: labels
+
     index:
       +materialized: view
       +schema: index

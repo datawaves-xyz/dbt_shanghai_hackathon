@@ -1,9 +1,4 @@
-with blue_chip as (
-  select *
-  from {{ ref('blue_chip_30') }}
-),
-
-contracts as (
+with contracts as (
   select distinct address
   from {{ ref('stg_contracts') }}
 ),
@@ -35,29 +30,6 @@ erc1155_batch_transfer as (
   from {{ ref('ERC1155_evt_TransferBatch') }}
 ),
 
-cryptopunks_transfer as (
-  select
-    contract_address as nft_contract_address,
-    punkindex as nft_token_id,
-    to as to_address,
-    evt_block_time as block_time
-  from {{ ref('cryptopunks_CryptoPunksMarket_evt_PunkTransfer') }}
-  union distinct
-  select
-    contract_address as nft_contract_address,
-    punkindex as nft_token_id,
-    toaddress as to_address,
-    evt_block_time as block_time
-  from {{ ref('cryptopunks_CryptoPunksMarket_evt_PunkBought') }}
-  union distinct
-  select
-    contract_address as nft_contract_address,
-    punkindex as nft_token_id,
-    to as to_address,
-    evt_block_time as block_time
-  from {{ ref('cryptopunks_CryptoPunksMarket_evt_Assign') }}
-), 
-
 holder_info as (
   select distinct
     nft_contract_address,
@@ -71,24 +43,26 @@ holder_info as (
       row_number()over(partition by nft_contract_address, nft_token_id order by block_time desc) as rank 
     from (
       select * from erc721_transfer
-      union
+      union distinct
       select * from erc1155_single_transfer
-      union
+      union distinct
       select * from erc1155_batch_transfer
-      union
-      select * from cryptopunks_transfer 
     )
     where to_address != '0x0000000000000000000000000000000000000000'
-  )
+  ) as a
+  left anti join contracts b
+  on a.to_address = b.address
   where rank = 1
 )
 
-select distinct
-  holder_info.holder as address,
-  'NFT Blue Chip Holder' as label,
-  'NFT Collector' as label_type
-from blue_chip
-join holder_info
-  on blue_chip.nft_contract_address = holder_info.nft_contract_address
-left anti join contracts
-  on holder_info.holder = contracts.address
+select
+  holder as address,
+  'Diversified NFT Holder' as label
+from (
+  select
+    holder,
+    count(distinct nft_contract_address) as collection_count
+  from holder_info
+  group by holder
+)
+where collection_count > 4

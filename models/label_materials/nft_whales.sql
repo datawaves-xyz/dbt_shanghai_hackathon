@@ -39,8 +39,7 @@ stat as (
 
 select
   stat.address,
-  'NFT Millionaire' as label,
-  'NFT Whale' as label_type
+  'NFT Millionaire' as label
 from stat
 left anti join contracts
   on stat.address = contracts.address

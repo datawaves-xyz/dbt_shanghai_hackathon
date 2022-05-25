@@ -16,24 +16,21 @@ name_registered_3 as (
 ens_label_1 as (
   select
     owner AS address,
-    lower(name) AS label,
-    'ens name' AS label_type
+    lower(name) AS label
   from name_registered_1
 ),
 
 ens_label_2 as (
   select
     owner AS address,
-    lower(name) AS label,
-    'ens name' AS label_type
+    lower(name) AS label
   from name_registered_2
 ),
 
 ens_label_3 as (
   select
     owner AS address,
-    lower(name) AS label,
-    'ens name' AS label_type
+    lower(name) AS label
   from name_registered_3
 )
 

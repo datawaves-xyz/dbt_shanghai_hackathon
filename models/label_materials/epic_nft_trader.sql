@@ -31,14 +31,13 @@ trade_info as (
 ),
 
 top_stat as (
-  select round(percentile(transaction, 0.975), 0) as target_value
+  select round(percentile(transaction, 0.99), 0) as target_value
   from trade_info 
 )
 
 select distinct
   trade_info.address,
-  'Rare NFT Trader' as label,
-  'NFT Collector' as label_type
+  'Epic NFT Trader' as label
 from trade_info
 full outer join top_stat
 where trade_info.transaction >= top_stat.target_value

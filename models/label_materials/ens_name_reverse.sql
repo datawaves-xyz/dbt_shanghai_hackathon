@@ -49,8 +49,7 @@ all_reverse_registrar as (
 
 select 
     t.eth_addr as address, 
-    lower(a.ens_name) as label,
-    'ens name reverse' as label_type
+    lower(a.ens_name) as label
 from ens_txn as t
 inner join all_reverse_registrar as a 
   on a.block_number = t.block_number 

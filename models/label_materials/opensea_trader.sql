@@ -11,8 +11,7 @@ contracts as (
 
 select distinct
   a.address,
-  'OpenSea Trader' as label,
-  'NFT Collector' as label_type
+  'OpenSea Trader' as label
 from (
   select distinct seller as address
   from opensea_trades

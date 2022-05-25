@@ -39,6 +39,5 @@ smart_trader as (
 
 select
   address,
-  'Smart NFT Trader' as label,
-  'Smart Money' as label_type
+  'Smart NFT Trader' as label
 from smart_trader
