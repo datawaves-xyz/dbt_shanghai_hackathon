@@ -22,14 +22,14 @@ swap as (
 )
 
 select 
-  call_block_number,
-  call_block_time,
-  call_tx_hash,
-  dt,
-  router,
-  token,
-  amount,
-  t.from as from
+  s.block_number,
+  s.block_time,
+  s.tx_hash,
+  s.dt,
+  s.router,
+  s.token,
+  s.amount,
+  t.from_address as from
 from txn as t
 inner join swap as s
   on s.block_number = t.block_number

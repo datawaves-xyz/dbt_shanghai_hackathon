@@ -35,7 +35,7 @@ ens_label_3 as (
     lower(name) AS label,
     'ens name' AS label_type
   from name_registered_3
-),
+)
 
 select * from ens_label_1
 union

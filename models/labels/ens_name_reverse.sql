@@ -32,7 +32,7 @@ all_reverse_registrar as (
     distinct name as ens_name, 
     call_block_number as block_number, 
     call_tx_hash as tx_hash
-  from ethereum_ens.reverseregistrar2_call_setname
+  from ens_reverse_registrar_2
   -- Only successful transactions
   where call_success is True
   
@@ -42,19 +42,19 @@ all_reverse_registrar as (
     distinct name as ens_name, 
     call_block_number as block_number, 
     call_tx_hash as tx_hash
-  from ethereum_ens.reverseregistrar1_call_setname
+  from ens_reverse_registrar_1
   -- Only successful transactions
   where call_success is True
-),
+)
 
 select 
     t.eth_addr as address, 
-    lower(c.ens_name) as label,
-    'ens name reverse' as label_type,
+    lower(a.ens_name) as label,
+    'ens name reverse' as label_type
 from ens_txn as t
-inner join ens_calls as c 
-  on c.block_number = t.block_number 
-  and c.tx_hash = t.tx_hash 
-  and c.ens_name <> '0x0000000000000000000000000000000000000000'
+inner join all_reverse_registrar as a 
+  on a.block_number = t.block_number 
+  and a.tx_hash = t.tx_hash 
+  and a.ens_name <> '0x0000000000000000000000000000000000000000'
 -- Filter all possible Unicode Whitespace characters to prevent malicious issues in the future
-WHERE lower(c.ens_name) not regexp '[\u0009\u000A\u000B\u000C\u000D\u0020\u0085\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202f\u205f\u3000]'
+WHERE lower(a.ens_name) not regexp '[\u0009\u000A\u000B\u000C\u000D\u0020\u0085\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202f\u205f\u3000]'
