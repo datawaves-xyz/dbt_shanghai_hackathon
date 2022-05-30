@@ -1,4 +1,3 @@
-
 name: 'dbt_shanghai_hackathon'
 version: '1.0.0'
 config-version: 2
@@ -7,20 +6,27 @@ profile: 'dbt_shanghai_hackathon'
 
 models:
   dbt_shanghai_hackathon:
+    +materialized: table
+    +file_format: parquet
+
     events:
-      +materialized: table
-      +file_format: parquet
       +schema: events
+    
+    properties:
+      +schema: properties
 
-    label_materials:
+    property_materials:
       +materialized: view
-      +schema: label_materials
-
-    labels:
-      +materialized: table
-      +file_format: parquet
-      +schema: labels
+      +schema: property_materials
 
     index:
       +materialized: view
       +schema: index
+
+seeds:
+  dbt_shanghai_hackathon:
+    +materialized: table
+    +file_format: parquet
+
+    phishing:
+      +schema: property_materials
