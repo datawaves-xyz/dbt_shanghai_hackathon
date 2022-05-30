@@ -1,0 +1,21 @@
+name: NFT Collector
+description: ""
+source_table: nft_collector_property
+user_field_name: address
+property_field_name: label
+property_descriptions:
+  - name: OpenSea Trader
+    description: Wallets that have transactions on OpenSea.
+  - name: Diversified NFT Holder
+    description: Wallets that are currently holding at least 5 collections
+  - name: NFT Blue Chip Holder
+    description: Wallets that are currently holding at least one Blue Chip NFT in their portfolio
+  - name: Uncommon NFT Trader
+    description: Top 10% in the number of NFT transactions
+  - name: Rare NFT Trader
+    description: Top 2.5% in the number of NFT transactions
+  - name: Epic NFT Trader
+    description: Top 1% in the number of NFT transactions
+  - name: Legendary NFT Trader
+    description: Top 0.1% in the number of NFT transactions
+

@@ -1,0 +1,9 @@
+name: NFT Whale
+description: ""
+source_table: nft_whale_property
+user_field_name: address
+property_field_name: label
+property_descriptions:
+  - name: NFT Millionaire
+    description: Wallets with $1,000,000+ NFT holding value.
+

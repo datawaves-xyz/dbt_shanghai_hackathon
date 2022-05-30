@@ -1,0 +1,14 @@
+name: Smart Money
+description: ""
+source_table: smart_money_property
+user_field_name: address
+property_field_name: label
+property_descriptions:
+  - name: Smart NFT Trader
+    description: The top 100 addresses in terms of realized profits from NFT sales.
+  - name: Smart NFT Holder
+    description: The top 100 addresses in terms of estimated profits of their current NFT portfolio.
+  - name: Smart NFT Minter
+  - name: Smart NFT Early Adopter
+  - name: Smart NFT Sweeper
+  - name: Airdrop Pro

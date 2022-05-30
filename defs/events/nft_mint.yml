@@ -1,0 +1,8 @@
+name: NFT Mint
+description: Events that occur when a NFT is minted by user
+source_table: nft_mint
+user_field_name: to
+filter_fields:
+  - field_name: dt
+  - field_name: contract_address
+  - field_name: evt_block_number

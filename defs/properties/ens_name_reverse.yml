@@ -1,0 +1,5 @@
+name: ENS Name (Reverse)
+description: ENS name that can be resolved to the user
+source_table: ens_name_reverse_property
+user_field_name: address
+property_field_name: label
