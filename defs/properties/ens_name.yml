@@ -1,5 +1,5 @@
 name: ENS Name
 description: the ENS name owned by the user
-source_table: ens_name_property
+source_table: ens_name_label
 user_field_name: address
 property_field_name: label

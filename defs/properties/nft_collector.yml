@@ -1,6 +1,6 @@
 name: NFT Collector
 description: ""
-source_table: nft_collector_property
+source_table: nft_collector_label
 user_field_name: address
 property_field_name: label
 property_descriptions:

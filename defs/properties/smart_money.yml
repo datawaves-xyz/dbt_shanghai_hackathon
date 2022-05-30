@@ -1,6 +1,6 @@
 name: Smart Money
 description: ""
-source_table: smart_money_property
+source_table: smart_money_label
 user_field_name: address
 property_field_name: label
 property_descriptions:
