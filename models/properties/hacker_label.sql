@@ -1,6 +1,6 @@
 with ens_name (
   select
-  * from {{ ref("phishing") }}
+  * from {{ source("ethereum_property_materials", "phishing") }}
 )
 
 select

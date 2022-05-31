@@ -23,10 +23,3 @@ models:
       +materialized: view
       +schema: index
 
-seeds:
-  dbt_shanghai_hackathon:
-    +materialized: table
-    +file_format: parquet
-
-    phishing:
-      +schema: property_materials

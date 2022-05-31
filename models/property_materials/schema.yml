@@ -12,3 +12,13 @@ models:
   - name: epic_nft_trader
   - name: legendary_nft_trader
   - name: diversified_nft_holder
+
+sources:
+  - name: ethereum_property_materials
+    tables:
+      - name: phishing
+        external:
+          location: s3a://ifcrypto/external/property_materials/phishing
+          using: csv
+          options:
+            header: "true"
