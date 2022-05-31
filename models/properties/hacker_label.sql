@@ -4,6 +4,6 @@ with ens_name (
 )
 
 select
-  address
+  address,
   'phishing' as label
 from ens_name
