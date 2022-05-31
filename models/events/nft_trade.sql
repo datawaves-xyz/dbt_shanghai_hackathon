@@ -16,4 +16,4 @@ select
   seller,
   block_time,
   cast(to_date(block_time) as string) as dt
-from nft_trade
+from nft_trades
