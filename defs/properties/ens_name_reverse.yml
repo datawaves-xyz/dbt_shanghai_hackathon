@@ -3,3 +3,4 @@ description: ENS name that can be resolved to the user
 source_table: ens_name_reverse_label
 user_field_name: address
 property_field_name: label
+created_by: '0x4ab190bc3c60678705cd819a37e10af7417ac89b'

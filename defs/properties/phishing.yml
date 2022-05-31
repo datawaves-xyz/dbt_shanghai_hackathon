@@ -1,0 +1,6 @@
+name: Phishing and Hackers
+description: Wallets that engaged into phishing and hacking activities
+source_table: hacker_label
+user_field_name: address
+property_field_name: label
+created_by: Etherscan

@@ -6,3 +6,4 @@ filter_fields:
   - field_name: dt
   - field_name: contract_address
   - field_name: evt_block_number
+created_by: '0x4ab190bc3c60678705cd819a37e10af7417ac89b'
